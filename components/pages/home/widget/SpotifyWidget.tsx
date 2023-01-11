@@ -1,7 +1,10 @@
+'use client'
+
 import { SpotifyIcon } from 'components/shared/Icons/SpotifyIcon'
-import { PlayingNowPayload } from 'lib/spotify.api'
+import getNowPlayingItem, { PlayingNowPayload } from 'lib/spotify.api'
 import Image from 'next/image'
 import Link from 'next/link'
+import React, { useEffect } from 'react'
 
 export interface SpotifyWidgetProps {
   playingNow: PlayingNowPayload

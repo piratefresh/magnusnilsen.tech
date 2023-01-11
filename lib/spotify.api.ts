@@ -50,6 +50,7 @@ export const getNowPlaying = async (
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    cache: 'no-store',
   })
 }
 
