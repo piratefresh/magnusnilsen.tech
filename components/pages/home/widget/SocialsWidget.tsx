@@ -19,6 +19,7 @@ export const SocialsWidget = ({ socials }: { socials: SocialsPayload }) => {
         <Link
           href={socials.resume}
           className="flex cursor-pointer flex-col items-center hover:animate-bounce"
+          target="_blank"
         >
           <Image
             width={68}
@@ -32,6 +33,7 @@ export const SocialsWidget = ({ socials }: { socials: SocialsPayload }) => {
         <Link
           href={socials.github}
           className="flex cursor-pointer flex-col items-center hover:animate-bounce"
+          target="_blank"
         >
           <Image
             width={68}
@@ -45,6 +47,7 @@ export const SocialsWidget = ({ socials }: { socials: SocialsPayload }) => {
         <Link
           href={socials.linkedin}
           className="flex cursor-pointer flex-col items-center hover:animate-bounce"
+          target="_blank"
         >
           <Image
             width={68}
