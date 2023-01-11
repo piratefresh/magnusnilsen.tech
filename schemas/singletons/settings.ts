@@ -69,6 +69,17 @@ export default defineType({
         hotspot: true,
       },
     }),
+    defineField({
+      name: 'socialsResume',
+      title: 'Socials and Resume',
+      type: 'object',
+      description: 'Displayed on social and resume card',
+      fields: [
+        { name: 'resume', type: 'string', title: 'Resume Link' },
+        { name: 'github', type: 'string', title: 'Github Link' },
+        { name: 'linkedin', type: 'string', title: 'Linkedin Link' },
+      ],
+    }),
   ],
   preview: {
     prepare() {

@@ -4,9 +4,13 @@ html {
   overflow-x: hidden;
 }
 
-p:not(:last-child) {
-  margin-bottom: 0.875rem;
+body {
+  background-color: #000000;
 }
+
+/* p:not(:last-child) {
+  margin-bottom: 0.875rem;
+} */
 
 ol,
 ul {

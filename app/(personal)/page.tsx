@@ -3,6 +3,7 @@ import { HomePagePreview } from 'components/pages/home/HomePagePreview'
 import { PreviewSuspense } from 'components/preview/PreviewSuspense'
 import { PreviewWrapper } from 'components/preview/PreviewWrapper'
 import { getHomePage } from 'lib/sanity.client'
+import getNowPlayingItem from 'lib/spotify.api'
 import { previewData } from 'next/headers'
 import { notFound } from 'next/navigation'
 
@@ -14,7 +15,13 @@ export default async function IndexRoute() {
     showcaseProjects: [],
   }
 
-  if (!data && !token) {
+  const playingNow = await getNowPlayingItem(
+    process.env.NEXT_SPOTIFY_CLIENT_ID,
+    process.env.NEXT_SPOTIFY_CLIENT_SECRET,
+    process.env.NEXT_SPOTIFY_CLIENT_REFRESH_TOKEN
+  )
+
+  if (!data && !token && !playingNow) {
     notFound()
   }
 
@@ -25,7 +32,7 @@ export default async function IndexRoute() {
           <PreviewSuspense
             fallback={
               <PreviewWrapper>
-                <HomePage data={data} />
+                <HomePage data={data} playingNow={playingNow} />
               </PreviewWrapper>
             }
           >
@@ -33,7 +40,7 @@ export default async function IndexRoute() {
           </PreviewSuspense>
         </>
       ) : (
-        <HomePage data={data} />
+        <HomePage data={data} playingNow={playingNow} />
       )}
     </>
   )

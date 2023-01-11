@@ -71,6 +71,20 @@ export default defineType({
         }),
       ],
     }),
+    defineField({
+      name: 'featuredProject',
+      title: 'Featured Project',
+      description: 'Will be inside the featured campaign widget',
+      type: 'object',
+      fields: [
+        {
+          title: 'Project',
+          name: 'project',
+          type: 'reference',
+          to: [{ type: 'project' }],
+        },
+      ],
+    }),
   ],
   preview: {
     select: {
