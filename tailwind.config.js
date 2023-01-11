@@ -55,6 +55,13 @@ module.exports = {
           backgroundOrigin: 'border-box',
           backgroundClip: 'padding-box, border-box',
         },
+        '.border-brandGradientOrangeRed': {
+          border: '3px solid transparent',
+          backgroundImage:
+            'linear-gradient(#181818, #181818),linear-gradient(135deg, #fec163 0%, #de4313 100%)',
+          backgroundOrigin: 'border-box',
+          backgroundClip: 'padding-box, border-box',
+        },
       })
     }),
   ],
