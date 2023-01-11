@@ -57,3 +57,8 @@ export const settingsQuery = groq`
     ogImage,
   }
 `
+export const socialsQuery = groq`
+  *[_type == "settings"][0]{
+    socialsResume{...},
+  }
+`

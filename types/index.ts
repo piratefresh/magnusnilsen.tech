@@ -62,3 +62,8 @@ export interface SettingsPayload {
   menuItems?: MenuItem[]
   ogImage?: Image
 }
+export interface SocialsPayload {
+  github: string
+  resume: string
+  linkedin: string
+}

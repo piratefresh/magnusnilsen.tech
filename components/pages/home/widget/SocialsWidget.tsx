@@ -1,10 +1,8 @@
-import { DocsIcon } from 'components/shared/Icons/DocsIcon'
-import { LinkedinIcon } from 'components/shared/Icons/LinkedinIcon'
 import Image from 'next/image'
-import GithubIcon from 'public/image/githubIcon.png'
-import { memo, SVGProps } from 'react'
+import Link from 'next/link'
+import { SocialsPayload } from 'types'
 
-export const SocialsWidget = () => {
+export const SocialsWidget = ({ socials }: { socials: SocialsPayload }) => {
   return (
     <div className="relative h-[200px]">
       <div className="absolute inset-0 w-full rounded-[12px]">
@@ -18,7 +16,10 @@ export const SocialsWidget = () => {
       </div>
 
       <div className="relative flex h-full w-full flex-row items-center justify-center gap-4">
-        <div className="flex cursor-pointer flex-col items-center">
+        <Link
+          href={socials.resume}
+          className="flex cursor-pointer flex-col items-center hover:animate-bounce"
+        >
           <Image
             width={68}
             height={68}
@@ -26,9 +27,12 @@ export const SocialsWidget = () => {
             alt="Resume Link"
           />
           <p className="text-white">Resume</p>
-        </div>
+        </Link>
 
-        <div className="flex cursor-pointer flex-col items-center">
+        <Link
+          href={socials.github}
+          className="flex cursor-pointer flex-col items-center hover:animate-bounce"
+        >
           <Image
             width={68}
             height={68}
@@ -36,9 +40,12 @@ export const SocialsWidget = () => {
             alt="Github Link"
           />
           <p className="text-white">Github</p>
-        </div>
+        </Link>
 
-        <div className="flex cursor-pointer flex-col items-center">
+        <Link
+          href={socials.linkedin}
+          className="flex cursor-pointer flex-col items-center hover:animate-bounce"
+        >
           <Image
             width={68}
             height={68}
@@ -46,7 +53,7 @@ export const SocialsWidget = () => {
             alt="Linkedin Link"
           />
           <p className="text-white">Linkedin</p>
-        </div>
+        </Link>
       </div>
     </div>
   )

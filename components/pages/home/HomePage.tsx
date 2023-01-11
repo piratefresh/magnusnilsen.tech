@@ -4,7 +4,7 @@ import ScrollUp from 'components/shared/ScrollUp'
 import { resolveHref } from 'lib/sanity.links'
 import { PlayingNowPayload } from 'lib/spotify.api'
 import Link from 'next/link'
-import type { HomePagePayload } from 'types'
+import type { HomePagePayload, SocialsPayload } from 'types'
 
 import { AboutMeWidget } from './widget/AboutMeWidget'
 import { BlogPostWidget } from './widget/BlogPostWidget'
@@ -16,9 +16,11 @@ import { SpotifyWidget } from './widget/SpotifyWidget'
 export function HomePage({
   data,
   playingNow,
+  socials,
 }: {
   data: HomePagePayload
   playingNow: PlayingNowPayload
+  socials: SocialsPayload
 }) {
   // Default to an empty object to allow previews on non-existent documents
   const { overview, showcaseProjects, title } = data
@@ -31,7 +33,7 @@ export function HomePage({
       <div className="relative mx-auto max-w-[800px] columns-1 gap-x-4 gap-y-4 space-y-5 md:columns-2">
         <AboutMeWidget title={title} description={overview} />
 
-        <SocialsWidget />
+        <SocialsWidget socials={socials} />
 
         <CurrentProjectWidget />
 
@@ -42,8 +44,9 @@ export function HomePage({
         <ContactMeWidget />
       </div>
       {/* Showcase projects */}
-      {/* {showcaseProjects && showcaseProjects.length > 0 && (
-        <div className="mx-auto max-w-[100rem] rounded-md border">
+      <h2 className="nav-logo text-2xl text-white">Older Projects</h2>
+      {showcaseProjects && showcaseProjects.length > 0 && (
+        <div className="mx-auto max-w-[100rem] rounded-[12px] border">
           {showcaseProjects.map((project, key) => {
             const href = resolveHref(project._type, project.slug)
             if (!href) {
@@ -56,7 +59,7 @@ export function HomePage({
             )
           })}
         </div>
-      )} */}
+      )}
 
       {/* Workaround: scroll to top on route change */}
       <ScrollUp />

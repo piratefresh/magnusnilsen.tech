@@ -7,6 +7,7 @@ import {
   pagesBySlugQuery,
   projectBySlugQuery,
   settingsQuery,
+  socialsQuery,
 } from 'lib/sanity.queries'
 import { createClient } from 'next-sanity'
 import type {
@@ -67,4 +68,11 @@ export async function getSettings({
   token?: string
 }): Promise<SettingsPayload | undefined> {
   return await sanityClient(token)?.fetch(settingsQuery)
+}
+export async function getSocials({
+  token,
+}: {
+  token?: string
+}): Promise<SettingsPayload | undefined> {
+  return await sanityClient(token)?.fetch(socialsQuery)
 }

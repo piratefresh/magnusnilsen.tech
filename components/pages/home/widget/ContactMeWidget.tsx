@@ -1,8 +1,11 @@
 export const ContactMeWidget = () => {
   return (
     <section className="border-brandGradient relative flex flex-col rounded-[12px] bg-black p-4 text-white">
-      <h4>Hei (Hello)</h4>
-      <p className="text-xs">Send me a message</p>
+      <div className="my-2">
+        <h4>Hei (Hello)</h4>
+        <p className="text-xs">Send me a message</p>
+      </div>
+
       <form name="contact" method="POST" data-netlify={true}>
         <input type="hidden" name="form-name" value="contact" />
         <fieldset className="flex flex-col gap-4">
